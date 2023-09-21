@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trò chơi Caro</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 10px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th,
+      td {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 24px;
+      }
+
+      button {
+        font-size: 20px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="caro"></table>
+
+    <button onclick="changer()">Change Value</button>
+
+    <script>
+      let banco = [];
+      let data = "";
+      let co = document.getElementById("caro");
+      for (let i = 0; i < 5; i++) {
+        banco[i] = new Array(0, 0, 0, 0, 0);
+      }
+
+      function displayBoard() {
+        data = "";
+        for (let i = 0; i < banco.length; i++) {
+          data += "<tr>";
+          for (let j = 0; j < banco[i].length; j++) {
+            data += "<td>" + banco[i][j] + "</td>";
+          }
+          data += "</tr>";
+        }
+        co.innerHTML = data;
+      }
+
+      function changer() {
+        let dong, cot;
+        dong = Number(prompt("Nhập dòng thay đổi"));
+        cot = Number(prompt("Nhập cột thay đổi"));
+        banco[dong][cot] = "x";
+        displayBoard();
+      }
+
+      displayBoard();
+    </script>
+  </body>
+</html>

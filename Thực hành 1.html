@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="input" id="input" />
+    <input type="button" onclick="add()" value="Add" />
+    <input type="button" onclick="display()" value="Display" />
+    <p id="element"></p>
+    <script>
+      let arr = [];
+      let x = 0;
+      function add() {
+        arr.push(document.getElementById("input").value);
+        alert("Element: " + arr[x] + " Added at index " + x);
+        x++;
+        document.getElementById("input").value = "";
+      }
+
+      function display() {
+        let e = "<hr>";
+        for (let i = 0; i < arr.length; i++) {
+          e += "Element " + i + " = " + arr[i] + "<br/>";
+        }
+        document.getElementById("element").innerHTML = e;
+      }
+    </script>
+  </body>
+</html>
